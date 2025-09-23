@@ -2,7 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import teacherRoutes from "./routes/teacherRoutes.js";
+import learnerRoutes from "./routes/learnerRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -21,7 +22,9 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
-
+// Routes
+app.use("/api/teachers", teacherRoutes);
+app.use("/api/learners", learnerRoutes);
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
