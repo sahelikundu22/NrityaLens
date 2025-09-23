@@ -4,6 +4,10 @@ const teacherSchema = new mongoose.Schema({
   clerkId: { type: String, required: true, unique: true }, // Clerk user ID
   name: { type: String },
   email: { type: String },
+  phone: { type: String },
+  address: { type: String },
+  city: { type: String },
+  country: { type: String },
   //core teaching info
   subjects: [{ type: String }] ,       // subjects they teach
   bio: { type: String },              // short description about teacher

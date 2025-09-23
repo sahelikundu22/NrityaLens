@@ -1,17 +1,17 @@
 import React from 'react';
 import { SignIn, SignUp } from '@clerk/clerk-react';
+import { Routes, Route } from 'react-router-dom';
 
 const AuthPage = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
-      <h1>Welcome to NrityaLens</h1>
-      <div style={{ margin: '20px' }}>
-        <SignIn path="/auth/signin" routing="path" />
-      </div>
-      <div style={{ margin: '20px' }}>
-        <SignUp path="/auth/signup" routing="path" />
-      </div>
-    </div>
+    <Routes>
+      <Route
+        path="/signin"
+        element={<SignIn routing="path" path="/auth/signin" afterSignInUrl="/onboarding" />} />
+      <Route
+        path="/signup"
+        element={<SignUp routing="path" path="/auth/signup" afterSignUpUrl="/onboarding" />} />
+    </Routes>
   );
 };
 

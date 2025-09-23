@@ -1,10 +1,10 @@
-const { createClerkClient } = require('@clerk/backend');
+import { createClerkClient } from "@clerk/backend";
 
-const clerkClient = createClerkClient({ 
-  secretKey: process.env.CLERK_SECRET_KEY 
+const clerkClient = createClerkClient({
+  secretKey: process.env.CLERK_SECRET_KEY,
 });
 
-const authenticateRequest = async (req, res, next) => {
+export const authenticateRequest = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
     
@@ -32,9 +32,8 @@ const authenticateRequest = async (req, res, next) => {
     req.user = {
       clerkId: user.id,
       email: user.emailAddresses[0]?.emailAddress||null,
-      //name: `${user.firstName} ${user.lastName}`.trim() //correct working
       name: [user.firstName, user.lastName].filter(Boolean).join(" ") || user.username || "Unknown User",
-      role: user.publicMetadata?.role || "learner" // optional by gpt
+      role: user.publicMetadata?.role || user.unsafeMetadata?.role || "learner"
     };
 
     next();
@@ -43,5 +42,3 @@ const authenticateRequest = async (req, res, next) => {
     return res.status(401).json({ error: 'Authentication failed' });
   }
 };
-
-module.exports = { authenticateRequest };
