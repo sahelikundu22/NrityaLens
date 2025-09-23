@@ -1,0 +1,165 @@
+.practice-mode {
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.practice-stats {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.camera-feed {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.camera-container {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.camera-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.camera-controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.camera-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.camera-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.camera-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quiz-interface {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px 0;
+  backdrop-filter: blur(10px);
+}
+
+.mudra-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.mudra-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mudra-meaning {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.feedback-display {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.accuracy-meter {
+  margin: 20px 0;
+}
+
+.accuracy-value {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.accuracy-bar {
+  width: 100%;
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accuracy-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.result {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.result.correct { color: #4CAF50; }
+.result.incorrect { color: #F44336; }
+
+.continue-btn, .next-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover, .next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
