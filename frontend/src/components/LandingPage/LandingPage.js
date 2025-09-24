@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import background from '../../assets/images/background.png';
 import './LandingPage.css';
 import { useUser } from '@clerk/clerk-react';
-
+import { FiMessageCircle } from 'react-icons/fi'; // Chat icon
+/*import { FaChalkboardTeacher } from 'react-icons/fa'; // Teacher icon
+import { MdSchool } from 'react-icons/md'; // Learner icon
+*/
 const LandingPage = () => {
   const { user } = useUser();
   const navigate = useNavigate();
@@ -11,7 +14,9 @@ const LandingPage = () => {
   const handleModuleClick = (path) => {
     navigate(path);
   };
-
+const handleChatClick = () => {
+    window.open('http://localhost:8501', '_blank');
+  };
   // Determine user role if logged in
   const role = user?.publicMetadata?.role || null; // 'learner' or 'teacher'
 
@@ -67,6 +72,10 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* Floating Chat Icon */}
+      <button className="chat-icon" onClick={handleChatClick}>
+        <FiMessageCircle size={30} />
+      </button>
     </div>
   );
 };
