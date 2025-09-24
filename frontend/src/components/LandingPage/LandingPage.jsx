@@ -28,7 +28,7 @@ const handleChatClick = () => {
       <section 
         className="hero-section"
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${background})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.39)), url(${background})`,
         }}
       >
         <div className="container">
