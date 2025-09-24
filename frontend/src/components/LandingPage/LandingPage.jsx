@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import background from '../../assets/images/background.png';
 import './LandingPage.css';
 import { useUser } from '@clerk/clerk-react';
-import { FiMessageCircle } from 'react-icons/fi'; // Chat icon
+import { FiMessageCircle } from 'react-icons/fi'; 
+import { FaHandsHelping, FaCameraRetro } from 'react-icons/fa';
+import { Hand, Camera } from 'lucide-react';
 /*import { FaChalkboardTeacher } from 'react-icons/fa'; // Teacher icon
 import { MdSchool } from 'react-icons/md'; // Learner icon
 */
@@ -50,28 +52,40 @@ const handleChatClick = () => {
         </div>
       </section>
 
-      {/* Features Section - always visible */}
-      <section className="features-section">
-        <div className="container">
-          <h2>How Can NrityaLens Help You?</h2>
-          <div className="features-grid">
-            <div 
-              className="feature-card"
-              onClick={() => handleModuleClick('/identify')}
-            >
-              <h3>Which Mudra is This?</h3>
-              <p>Upload an image of a hand gesture, and our AI will identify the mudra, provide its meaning, and analyze your shape accuracy.</p>
-            </div>
-            <div 
-              className="feature-card"
-              onClick={() => handleModuleClick('/practice')}
-            >
-              <h3>Mudra Shape Accuracy Camera</h3>
-              <p>Test your skills! The app will prompt you with a mudra name, and you must perform it in front of your camera to get a real-time accuracy score.</p>
-            </div>
-          </div>
+      {/* Features Section - Beautified */}
+<section className="features-section">
+  <div className="container">
+    <h2>How Can NrityaLens Help You?</h2>
+    <div className="features-grid">
+
+      {/* Feature Card 1 */}
+      <div className="feature-card" onClick={() => handleModuleClick('/identify')}>
+        <div className="feature-icon-wrapper">
+          <Hand size={50} className="feature-icon" />
         </div>
-      </section>
+        <h3>Which Mudra is This?</h3>
+        <p>
+          Upload an image of a hand gesture, and our AI will identify the mudra, provide its meaning, and analyze your shape accuracy.
+        </p>
+        <span className="feature-cta">Try Now →</span>
+      </div>
+
+      {/* Feature Card 2 */}
+      <div className="feature-card" onClick={() => handleModuleClick('/practice')}>
+        <div className="feature-icon-wrapper">
+          <Camera size={50} className="feature-icon" />
+        </div>
+        <h3>Mudra Shape Accuracy Camera</h3>
+        <p>
+          Test your skills! The app will prompt you with a mudra name, and you must perform it in front of your camera to get a real-time accuracy score.
+        </p>
+        <span className="feature-cta">Practice Now →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
       {/* Floating Chat Icon */}
       <button className="chat-icon" onClick={handleChatClick}>
         <FiMessageCircle size={30} />
